@@ -1,6 +1,12 @@
 const express = require('express');
 const app = express();
 
+
+
+app.get('/', function(req, res){
+  res.send('HelloWorld');
+})
+
 app.get('/greeting/:name', function(req, res){
   res.json({
     resp: 'Hello '+req.params.name,
@@ -8,4 +14,4 @@ app.get('/greeting/:name', function(req, res){
   })
 })
 
-app.listen(5000);
+app.listen(process.env.PORT || 5000);
